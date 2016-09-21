@@ -26,7 +26,7 @@
         </tr>
       </table>
       <div class="line"></div>
-      <input id='answer' class='answer' type='text'>
+      <input id='answer' class='answer' type='text' pattern="\d*">
       <div id='feedback'></div>
     </div>
 
@@ -36,9 +36,15 @@
       <!-- Modal content -->
       <div class="modal-content">
         <ul>
-          <li>Time Limit(minutes): <input id='timelimit' class='timelimit' type='text' value='5'></li>
-          <li>Max Number:    <input id='maxnum' class='maxnum' type='text' value='10'></li>
-          <li>Operator:      <input id='operator' class='operator' type='text' value='+'></li>
+          <li>Time Limit(minutes): <input id='timelimit' class='timelimit' type='number' value='5'></li>
+          <li>Max Number:    <input id='maxnum' class='maxnum' type='number' value='10'></li>
+          <li>Operator:
+            <select id='operator' class='operator'>
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+            </select>
+          </li>
           <li><div id="start">Start!</div></li>
         </ul>
       </div>
