@@ -62,18 +62,19 @@ function timesUp(feedbackBox, answerBox) {
 }
 
 function formatTime(seconds) {
-	var mins = Math.floor(seconds /60);
+  var mins = Math.floor(seconds /60);
   var secs = seconds % 60;
 
   if(secs < 10){
-  	secs = "0" + secs;
+    secs = "0" + secs;
   }
-	return mins + ":" + secs;
+  return mins + ":" + secs;
 }
 
 var score = 0;
 var feedbackBox = document.getElementById("feedback");
 var answerBox = document.getElementById("answer");
+
 window.onload = problemInit();
 window.setInterval(function() {
   var time = document.getElementById("secs").innerHTML;
