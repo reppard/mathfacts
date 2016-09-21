@@ -1,0 +1,92 @@
+@import 'https://fonts.googleapis.com/css?family=Indie+Flower';
+
+body {
+  background: #1E1C1A;
+  font-family: 'Indie Flower';
+}
+
+.answer {
+  width: 60px;
+  height: 60px;
+  font-size: 1em;
+  font-family: 'Indie Flower';
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  padding: 25px;
+  text-align: center;
+  font-size: 3.5em;
+  color: #FFE0C0;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  border-top: 5px solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+#feedback {
+  margin-top: 15px;
+  height: 81px;
+}
+
+.header {
+  height: 81px;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+}
+
+.title {
+  width: 35%;
+  height: 81px;
+  color: #FF9400;
+  float: left;
+}
+
+#score {
+  color: #70AECF;
+  height: 81px;
+  font-size: 0.55em;
+  margin-left: 10%;
+  margin-right: 0;
+  text-align: left;
+  float: left;
+}
+
+.timeleft {
+  color: #3B6B85;
+  float: left;
+}
+
+.timebox {
+  height: 81px;
+  font-size: 0.55em;
+  margin-left: 10%;
+  text-align: left;
+  float: left;
+}
+
+#mins {
+  color: #FFD09F;
+  margin-left: 5px;
+  float: left;
+}
+
+#secs {
+  width: 0px;
+  height: 0px;
+  font-size: 0px;
+  hidden: true;
+}
