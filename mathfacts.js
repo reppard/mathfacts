@@ -4,12 +4,16 @@ function randomInt(min, max) {
 
 function fetchProblem() {
   var problem = {
-    first_num: randomInt(0, 12),
-    second_num: randomInt(0, 10)
+    first_num:  randomInt(0, config.maxnum),
+    second_num: randomInt(0, config.maxnum),
+    operator:   config.operator
   }
-  problem.answer = problem.first_num + problem.second_num;
 
-  return problem
+  problem.answer = eval(
+      problem.first_num + problem.operator + problem.second_num
+      );
+
+  return problem;
 };
 
 function loadProblem(lastProblem) {
@@ -24,21 +28,26 @@ function loadProblem(lastProblem) {
     problem = fetchProblem();
   }
 
-  document.getElementById('num1').innerHTML = problem.first_num;
-  document.getElementById('num2').innerHTML = problem.second_num;
+  document.getElementById('num1').innerHTML         = problem.first_num;
+  document.getElementById('num2').innerHTML         = problem.second_num;
+  document.getElementById('operatorSign').innerHTML = problem.operator;
+
   return problem;
 }
 
 function updateScore(score) {
-  var scoreBox = document.getElementById("score");
   scoreBox.innerHTML = "Score: " + score;
 }
 
-function problemInit() {
+function initializeRound() {
   var problem = loadProblem();
+	score = 0;
+
+  answerBox.disabled = false;
+  answerBox.focus();
 
   updateScore(score);
-  answerBox.focus();
+  startTime();
   answerBox.onkeydown = function(e) {
     if (e.keyCode == 13) {
       if (answerBox.value == problem.answer) {
@@ -55,10 +64,17 @@ function problemInit() {
   }
 }
 
+function endOfRoundMessage () {
+	return "<span style='color: #FF9400'>"
+		+ "Times up! Final Score: "
+		+ score
+		+ "</span><br>"
+		+ "<div id='tryagain' onclick='showConfig(true)'>Try Again?</div>";
+}
+
 function timesUp(feedbackBox, answerBox) {
   answerBox.disabled = true;
-  feedbackBox.innerHTML =
-    "<span style='color: #FF9400'>Times up! Final Score: " + score + "</span>";
+  feedbackBox.innerHTML = endOfRoundMessage();
 }
 
 function formatTime(seconds) {
@@ -71,18 +87,59 @@ function formatTime(seconds) {
   return mins + ":" + secs;
 }
 
-var score = 0;
-var feedbackBox = document.getElementById("feedback");
-var answerBox = document.getElementById("answer");
+function showConfig (status) {
+  var modal = document.getElementById('myModal');
+  var start = document.getElementById('start');
 
-window.onload = problemInit();
-window.setInterval(function() {
-  var time = document.getElementById("secs").innerHTML;
-  if (time > 0) {
-    time -= 1;
+  if(status) {
+    modal.style.display = "block";
   } else {
-    timesUp(feedbackBox, answerBox);
+    modal.style.display = "none";
   }
-  document.getElementById("secs").innerHTML = time;
-  document.getElementById("mins").innerHTML = formatTime(time);
-}, 1000);
+
+  // Start button
+  start.onclick = (function(){
+    config = {
+      timelimit: timelimit.value,
+      operator:  operator.value,
+      maxnum:    maxnum.value
+    };
+
+    modal.style.display = "none";
+    feedbackBox.innerHTML = '';
+    initializeRound();
+  });
+}
+
+function startTime () {
+  clock.innerHTML = "--:--"
+  var time = config.timelimit * 60;
+
+  var interval = window.setInterval(function() {
+    if (time > 0) {
+      time -= 1;
+    } else {
+      timesUp(feedbackBox, answerBox);
+      window.clearInterval(interval);
+    }
+    clock.innerHTML = formatTime(time);
+  }, 1000);
+}
+
+// Initialize Game
+
+var score       = 0;
+var scoreBox    = document.getElementById("score");
+var feedbackBox = document.getElementById("feedback");
+var answerBox   = document.getElementById("answer");
+var timelimit   = document.getElementById("timelimit");
+var operator    = document.getElementById("operator");
+var maxnum      = document.getElementById("maxnum");
+var clock       = document.getElementById("clock");
+var config      = {
+  timelimit: timelimit.value,
+  operator:  operator.value,
+  maxnum:    maxnum.value
+};
+
+window.onload = showConfig(true);
