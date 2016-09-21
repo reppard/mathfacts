@@ -83,6 +83,11 @@ table {
   float: left;
 }
 
+#tryagain {
+  cursor: pointer;
+}
+
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -105,6 +110,7 @@ table {
   border: 1px solid #888;
   min-width: 35%;
   max-width: 50%;
+  text-align: center;
 }
 
 .modal-content li, input, select {
@@ -112,44 +118,22 @@ table {
 }
 
 .modal-content li {
-  height: 50px;
-  width: 100%;
   list-style: none;
+  margin-top: 15px;
 }
 
 .modal-content input {
-  float: right;
-  width:  1.5em;
+  font-family: 'Indie Flower';
+  text-align: center;
+  width: 25%;
 }
 
 .modal-content select {
-  float: right;
-  width:  1.5em;
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#tryagain {
-  cursor: pointer;
+  text-align: center;
 }
 
 #start {
   cursor: pointer;
   color: #3B6B85;
-  float: right;
   font-size: 2em;
-  margin-top: 15px;
 }
