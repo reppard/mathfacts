@@ -1,7 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Indie+Flower';
+@import 'https://fonts.googleapis.com/css?family=Coming+Soon';
 body {
   background: #1E1C1A;
-  font-family: 'Indie Flower';
+  font-family: 'Coming Soon';
 }
 
 #problem_container {
@@ -12,7 +12,7 @@ body {
   width: 60px;
   height: 60px;
   font-size: 1em;
-  font-family: 'Indie Flower';
+  font-family: 'Coming Soon';
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -121,7 +121,7 @@ table {
 }
 
 .modal-content input {
-  font-family: 'Indie Flower';
+  font-family: 'Coming Soon';
   text-align: center;
   width: 25%;
 }
