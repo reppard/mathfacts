@@ -39,6 +39,15 @@ function updateScore(score) {
   scoreBox.innerHTML = "Score: " + score;
 }
 
+function updateFeedback(correct) {
+	var spanMap = {
+		true:  "<span style='color: green'>CORRECT !!</span>",
+		false: "<span style='color: red'>INCORRECT !</span>"
+	}
+
+	feedbackBox.innerHTML = spanMap[correct]
+}
+
 function initializeRound() {
   var problem = loadProblem();
 	score = 0;
@@ -51,14 +60,14 @@ function initializeRound() {
   answerBox.onkeydown = function(e) {
     if (e.keyCode == 13) {
       if (answerBox.value == problem.answer) {
-        feedbackBox.innerHTML = "<span style='color: #4F87A5'>CORRECT!</span>";
         score += 1;
+				updateFeedback(true);
         updateScore(score);
         answerBox.value = '';
         problem = loadProblem(problem);
       } else {
         answerBox.value = '';
-        feedbackBox.innerHTML = "<span style='color: #FF9400'>WRONG!</span>";
+				updateFeedback(false);
       }
     }
   }
