@@ -11,22 +11,24 @@
         <div class="title">Math Facts</div>
         <div id='score'>Score: 0</div>
         <div class="timebox">
-          <div class="timeleft">Time Left: </div>
-          <div id="clock"></div>
+          <div class="timeleft">Time: </div>
+            <div id="clock">--:--</div>
         </div>
       </div>
-      <table>
-        <tr>
-          <td> </td>
-          <td id="num1"></td>
-        </tr>
-        <tr>
-          <td id="operatorSign"> </td>
-          <td id="num2"></td>
-        </tr>
-      </table>
-      <div class="line"></div>
-      <input id='answer' class='answer' type='text' pattern="\d*">
+      <div id='problem_container'>
+        <table>
+          <tr>
+            <td> </td>
+            <td id="num1"></td>
+          </tr>
+          <tr>
+            <td id="operatorSign"> </td>
+            <td id="num2"></td>
+          </tr>
+        </table>
+        <div class="line"></div>
+        <input id='answer' class='answer' type='text' pattern="\d*">
+      </div>
       <div id='feedback'></div>
     </div>
 

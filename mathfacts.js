@@ -106,6 +106,7 @@ function showConfig (status) {
     };
 
     modal.style.display = "none";
+    problemBox.style.display = "block";
     feedbackBox.innerHTML = '';
     initializeRound();
   });
@@ -136,6 +137,8 @@ var timelimit   = document.getElementById("timelimit");
 var operator    = document.getElementById("operator");
 var maxnum      = document.getElementById("maxnum");
 var clock       = document.getElementById("clock");
+var problemBox  = document.getElementById("problem_container");
+
 var config      = {
   timelimit: timelimit.value,
   operator:  operator.value,
