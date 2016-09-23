@@ -25,7 +25,6 @@ table {
 }
 
 .content {
-  padding: 25px;
   text-align: center;
   font-size: 3.5em;
   color: #FFE0C0;
@@ -56,29 +55,47 @@ table {
   color: #FF9400;
 }
 
-#score {
-  color: #70AECF;
+section.scoretime {
+  width: 90%;
+  height: 50px;
+  margin: auto;
+}
+
+.score {
   font-size: 0.45em;
-  margin-left: 10%;
-  margin-right: 0;
+  width: 52%;
+  height: 50px;
+  margin: auto;
+  text-align: right;
+  float: left;
+}
+
+.scoreLabel {
+  width: 80%;
+  margin-right: 15px;
+  color: #70AECF;
+  float:left;
+}
+
+#scoreCounter {
+  color: #FFD09F;
   text-align: left;
 }
 
 .timebox {
-  width: 100%;
+  height: 50px;
   font-size: 0.45em;
-  margin-left: 10%;
+  text-align: left;
 }
 
 .timeleft {
-  color: #3B6B85;
-  float:left;
+  float: left;
+  margin-right: 15px;
+  color: #70AECF;
 }
 
 #clock {
   color: #FFD09F;
-  margin-left: 10px;
-  float:left;
 }
 
 #tryagain {
@@ -103,14 +120,20 @@ table {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: auto 15% auto 15%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 20px;
   border: 1px solid #888;
   min-width: 35%;
-  max-width: 50%;
+  max-width: 95%;
   text-align: center;
 }
 
+.modal-content ul {
+  padding: 0;
+}
 .modal-content li, input, select {
   font-size: 1.5em;
 }

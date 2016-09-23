@@ -36,7 +36,7 @@ function loadProblem(lastProblem) {
 }
 
 function updateScore(score) {
-  scoreBox.innerHTML = "Score: " + score;
+  scoreCounter.innerHTML = score;
 }
 
 function updateFeedback(correct) {
@@ -138,15 +138,15 @@ function startTime () {
 
 // Initialize Game
 
-var score       = 0;
-var scoreBox    = document.getElementById("score");
-var feedbackBox = document.getElementById("feedback");
-var answerBox   = document.getElementById("answer");
-var timelimit   = document.getElementById("timelimit");
-var operator    = document.getElementById("operator");
-var maxnum      = document.getElementById("maxnum");
-var clock       = document.getElementById("clock");
-var problemBox  = document.getElementById("problem_container");
+var score        = 0;
+var scoreCounter = document.getElementById("scoreCounter");
+var feedbackBox  = document.getElementById("feedback");
+var answerBox    = document.getElementById("answer");
+var timelimit    = document.getElementById("timelimit");
+var operator     = document.getElementById("operator");
+var maxnum       = document.getElementById("maxnum");
+var clock        = document.getElementById("clock");
+var problemBox   = document.getElementById("problem_container");
 
 var config      = {
   timelimit: timelimit.value,
